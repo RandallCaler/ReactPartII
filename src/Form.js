@@ -21,9 +21,10 @@ function Form(props) {
   }
 
   function submitForm() {
+    console.log("Submit Form Person: "+person);
     props.handleSubmit(person);
     setPerson({name: '', job: ''});
-    <input type="button" value="Submit" onClick={submitForm} />//this may be wrong, ask in lab if it doesn't work
+   
   }
 
   return (
@@ -42,6 +43,7 @@ function Form(props) {
         id="job"
         value={person.job}
         onChange={handleChange} />
+        <input type="button" value="Submit" onClick={submitForm} />
     </form>
   );
 }
