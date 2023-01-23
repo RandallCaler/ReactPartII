@@ -6,11 +6,15 @@ import React, {useState, useEffect} from 'react';
 
 function MyApp() {
   const [characters, setCharacters] = useState([]);
+
   function removeOneCharacter (index) {
     const updated = characters.filter((character, i) => {
-        return i !== index
-      });
-      setCharacters(updated);
+      return i !== index
+    });
+    const person = characters[index];
+    const id=person['id'];
+    const response = axios.delete(`http://localhost:5000/users/${id}`);
+    setCharacters(updated);
   }
   /*function updateList(person) {
     setCharacters([...characters, person]);
