@@ -12,13 +12,13 @@ function MyApp() {
       });
       setCharacters(updated);
   }
-  function updateList(person) {
+  /*function updateList(person) {
     setCharacters([...characters, person]);
-  }
+  }*/
   function updateList(person) { 
     makePostCall(person).then( result => {
     if (result && result.status === 200)
-       setCharacters([...characters, person] );
+       setCharacters([...characters, result.data] );
     });
  }
   async function fetchAll(){
